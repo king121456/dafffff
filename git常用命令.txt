@@ -1,0 +1,116 @@
+1.设置用户名及邮箱
+git config --global user.name 'houhanbin' 
+git config --global user.email 'ailongmasike@163.com'
+注：本地的用户名和邮箱如果不与github上一致，那么提交的代码将不计算贡献值
+2.查看配置信息
+git config --list
+
+3创建仓库
+使用cmd命令 mkdi或md [文件名] 用于在当前目录下创建子文件夹
+
+使用cd命令 跳转至该文件夹下 cd ../调至上一级 cd 文件名 调至该文件下
+
+在该文件夹下执行
+git init
+
+4.命令用于显示当前目录
+pwd
+
+5.将文件添加暂存区,使用commit命令上传的是暂存区的内容
+git add xxx.xxx 
+
+提交文件
+git commit -m '本次的提交说明'
+6.查看仓库状态 
+git status
+
+7.查看文件修改哪些内容
+git diff xx.xx
+
+8查看提交日志
+git log  详细信息
+git log --pretty=oneline 简要信息
+
+9.版本回退
+head 表示当前版本
+git reset --hard sha
+git reset --hard head~1 回退到上个版本  《=》git reset --hard head^
+git reset --hard head~50 回退到前50个版本
+
+回退后后悔解决方法 
+1）如果git bash还没有关闭，就可以找到之前上传版本号(sha1)
+
+git reset --hard sha1(不用输全，前几位即可)
+2）git bash已关闭解决方案：
+使用git reflog可以查看用户的操作记录，最前边显示的是head的sha1，
+git reset --hard sha1的码
+
+10.查看文档结构
+ls 查看当前文件夹的文件夹及文件
+ls -ah  查看隐藏的文件夹及文件
+
+11查看文件内容
+cat 文件名的绝对路径或相对路径
+
+12git add的区别
+git add . ：他会监控工作区的状态树，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。
+
+git add -u ：他仅监控已经被add的文件（即tracked file），他会将被修改的文件提交到暂存区。add -u 不会提交新文件（untracked file）。（git add --update的缩写）
+
+git add -A ：是上面两个功能的合集（git add --all的缩写）
+
+
+13.
+git checkout -- xx.xx 可以丢弃工作区的修改
+
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+
+总之，就是让这个文件回到最近一次git commit或git add时的状态。
+
+14.rm xx.xx
+删除文件
+
+
+15.创建远程仓库
+ssh-keygen -t rsa -C "youremail@example.com" 创建本地的ssh key
+
+可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人
+
+登陆GitHub，打开“Account settings”，“SSH Keys”页面：
+
+然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
